@@ -1,0 +1,353 @@
+@import 'tooling';
+@import 'mix';
+@import 'reset';
+
+
+.wrapper
+{
+    @include display(flex,center,center);
+    background: #d6e4ef;
+    height: 100vh;
+    .card 
+    {
+        
+        margin-top: 1rem;
+        @include display(flex,space-between,normal);
+        position: relative;
+        width: 400px;
+        min-height: 680px;
+        overflow: hidden;
+        i 
+        {
+            cursor: pointer;
+        }
+        &-front
+        {
+           width: 400px;
+           box-shadow: 0rem 0 .5rem 0 rgba(0, 0, 0, 0.18);
+           min-height: 680px;
+           background: $color;
+           @include position(absolute,'',0,0,0,0,1);
+           @include ease;
+           &-header
+           {
+                background:url(../img/Clouds.jpg)no-repeat center/cover;
+                padding: 1rem 0rem 1rem .5rem;
+                min-height: 200px;
+                color: $color;
+                position: relative;
+                z-index: 10;
+                &::after
+                {
+                    @include position(absolute,'',0,0,0,'',-1);
+                    width: 35%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.4);
+                }
+                &::before
+                {
+                    @include position(absolute,'',0,0,0,0,-1);
+                    position: absolute;
+                    width: 65%;
+                    height: 100%;
+                    background: rgba(40, 123, 164, 0.21);
+                }
+                .menu
+                {
+                    font-weight: lighter;
+                    padding: 0 0 1.2rem 0;
+                    font-size: text(20px);
+                    margin-bottom: 1.2rem;
+                }
+                .content
+                {
+                    height: 139px;
+                    @include display(flex,space-between,normal);
+                    &-titles
+                    {
+                        @include display(flex,normal,normal);
+                        flex-flow: column;
+                        .title
+                        {
+                            font-size: text(25px);
+                            font-weight: bold;
+                            color: lighten($primary-color, 50);
+                            line-height: 1.4;
+                            letter-spacing: 1px;
+                        }
+                        .date
+                        {
+                            margin-top: auto;
+                            font-size: text(14px);
+                            color: lighten($scondary-color, 10);
+                        }
+                    }
+                }
+                .content-Cat
+                {
+                    flex: 0 0 35%;
+                    align-self: center;
+                    .cat
+                    {
+                        @include display(flex,space-around,center);  
+                        text-align: center;
+                        padding: .5rem 0rem;
+                        
+                        h3 
+                        {
+                            font-size: text(18px);
+                            padding: .2rem;
+                            color: $color
+                        }     
+                        h4 
+                        {
+                            font-size: text(12px);
+                            color: darken($color,12);
+                            letter-spacing: 1px;
+                        }        
+                    }
+                    .complete
+                    {
+                        position: relative;
+                        position: relative;
+                        top: text(39px);
+                        font-size: text(14px);
+                        text-align: right;
+                        padding: .5rem;
+                        color: lighten($scondary-color, 10);
+
+                    }
+                }
+           }
+           &-content
+           {
+               background: $color;
+               .title
+               {
+                   padding: .5rem;
+                    color: $scondary-color;
+               }
+               .todo-list
+               {
+                   padding: .5rem 1rem;
+                   max-height: 300px;
+                   overflow: hidden scroll;
+                   &-item
+                   {
+                       @include display(flex,space-around,center);
+                       margin-bottom: 1rem;
+                       border-bottom: 1px solid darken($color,20);
+                       padding:.5rem 0rem ;
+                       text-align: left;
+                        cursor: pointer;
+                        position: relative;
+                       @include ease;
+                       
+                        .todo-icon
+                        {
+                            align-self: center;
+                            border: 1px solid $scondary-color;
+                            border-radius: 20px 10px;
+                        }
+                        .todo-task
+                        {
+                            flex: 0 0 50%;
+                            h3 
+                            {
+                                font-size: text(14px);
+                                color: darken($color,60);
+                                padding: .1rem 0;
+                                letter-spacing: 1px;
+                                line-height: 1.4;
+                                color: darken($color,80);
+                            }
+                            h4 
+                            {
+                                font-size: text(13px);
+                                color: darken($color,60);
+                            }
+                        }
+                        .todo-time
+                        {
+                            color: darken($color,60);
+                            font-size: text(13px);
+                            text-transform: lowercase;
+                            align-self: center;
+                        }
+                   }
+               }
+           }
+           &-completed
+           {
+            background:$color;
+            padding: 1rem;
+            margin-top: 1rem;
+            position: relative;
+            h4 
+            {
+                font-size: text(13px);
+                color: darken($color,60);
+                
+                .number
+                {
+                    display: inline-block;
+                    padding: .5rem;
+                    background: darken($color,10);
+                    border-radius: 50%;
+                }
+            }
+            .add-tak
+            {
+                @include position(absolute,'',text(-9px),0,0,83%,1);
+                width: 40px;
+                height: 40px;
+                font-weight: lighter;
+                border-radius: 50%;
+                background: $scondary-color;
+                color: $color;
+                padding: .5rem;
+                box-shadow: 0rem 0rem 1rem .1rem rgba($scondary-color,.6);
+                @include ease;
+                &::before
+                {
+                    @include position(absolute,'',text(10px),0,0,text(20px),1);
+                    width: 1px;
+                    height: 20px;
+                    background: $color;
+
+                }
+                &::after
+                {
+                    @include position(absolute,'',text(10px),0,0,text(20px),1);
+                    width: 1px;
+                    background: $color;
+                    height: 20px;
+                    transform: rotate(90deg);
+                }
+                &:hover
+                {
+                    transform: scale(.9) rotate(40deg);
+                }
+            }
+           }
+        }
+
+        &-back
+        {
+            width: 400px;
+            min-height: 680px;
+            box-shadow: 0rem 0 .5rem 0 rgba(0, 0, 0, 0.18);
+            background:darken($primary-color, 20);
+            @include position(absolute,'',0,0,0,130%,1);
+            @include ease;
+            &-header
+            {
+                padding: 1.5rem 0rem;
+                .content
+                {
+                    @include display(flex,space-around,center);
+                    div
+                    {
+                        h3 
+                        {
+                            color: $color;
+                            text-transform: capitalize;
+                            letter-spacing: 2px;
+                        }
+                        i 
+                        {
+                            color: $scondary-color;
+                            font-size: text(22px);                        }
+                    }
+                }
+            }
+            &-content
+            {
+                padding: .5rem 1rem;
+                .adding-icon
+                {
+                   padding: 1rem 0;
+                    @include display(flex,center,center);
+                    .icon 
+                    {
+                        border: 1px solid transparentize($color,.7);
+                        border-radius: 30px 20px;
+                    }
+                }
+                form 
+                {
+                    padding: 3rem 1rem 0 1rem;
+                    div 
+                    {
+                        width: 100%;
+                        input,select
+                    {
+                        border: none;
+                        width: 100%;
+                        letter-spacing: 1px;
+                        padding: 1rem 1rem .5rem 1rem;
+                        margin-bottom: .5rem;
+                        color: $color;
+                        background: none;
+                        border-bottom: 1px solid darken($scondary-color,15);
+                        border-width: 1px;
+                        font-size: text(14px);
+                        
+                        option
+                        {
+                            background:darken($primary-color, 20);
+
+                        }
+                    } 
+                    &:last-child
+                    {
+                        margin-top: 2rem;
+                        text-align: center;
+                        button 
+                        {
+                            display: block;
+                            width: 100%;
+                            border: none;
+                            padding: .7rem ;
+                            background: $scondary-color;
+                            box-shadow: 0rem 0 0.5rem 0 rgba(0, 0, 0, 0.18);
+                            color: $color;
+                            text-transform: uppercase;
+                            letter-spacing: 2px;
+                            cursor: pointer;
+                            @include ease;
+                            &:hover
+                            {
+                                background: darken($scondary-color, 10);
+                                transform: scale(.98);
+                            }
+                        }
+                    }
+                    }
+                   
+                }
+            }
+        }
+    }
+}
+.move
+{
+    left: 0 !important;
+}
+.change
+{
+    left: -130% !important;
+}
+.done
+{
+    background: darken($color,10);
+    border: none !important;
+}
+.scroller {
+
+    overflow-y: scroll;
+    scrollbar-color: $scondary-color #fff;
+    scrollbar-width: thin;
+    border-radius: 30px 30px;
+  }
+

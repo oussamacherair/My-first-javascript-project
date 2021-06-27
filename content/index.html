@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <title>TODO List</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <div class="card-front">
+                <div class="card-front-header">
+                    <div class="menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="content">
+                        <div class="content-titles">
+                            <h3 class="title">Your <br> Things</h3>
+                            <div class="date">
+                                <h5 class="time">Jun 22, 2021</h5>
+                            </div>
+                        </div>
+                        <div class="content-Cat">
+                            <div class="cat">
+                                <div class="personal">
+                                    <h3 class="personal-number">0</h2>
+                                        <h4 class="title">Personal
+                                    </h3>
+                                </div>
+                                <div class="business">
+                                    <h3 class="business-number">0</h3>
+                                    <h4 class="title">Business</h4>
+                                </div>
+                            </div>
+                            <div class="complete">
+                                <h4 class="perc">0% done</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-front-content">
+                    <h3 class="title">INBOX</h3>
+                    <ul class="todo-list scroller">
+                       <!-----<li class="todo-list-item" data-category="Business">
+                            <div class="todo-icon">
+                                <lord-icon src="https://cdn.lordicon.com//fhtaantg.json" trigger="loop"
+                                    colors="primary:#30c9e8,secondary:#30c9e8" style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <div class="todo-task">
+                                <h3>Go to the job interview</h3>
+                                <h4>Google job interview</h4>
+                            </div>
+                            <div class="todo-time">
+                                <h3>09:00 AM</h3>
+                            </div>
+                        </li>
+                        <li class="todo-list-item" data-category="Activity">
+                            <div class="todo-icon">
+                                <lord-icon src="https://cdn.lordicon.com//hovbgwmd.json" trigger="loop"
+                                    colors="primary:#30c9e8,secondary:#30c9e8" style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <div class="todo-task">
+                                <h3>Go biking</h3>
+                                <h4>Have a break and think</h4>
+
+                            </div>
+                            <div class="todo-time">
+                                <h3>12:00 AM</h3>
+                            </div>
+                        </li>
+                        <li class="todo-list-item" data-category="Breather">
+                            <div class="todo-icon">
+                                <lord-icon src="https://cdn.lordicon.com//jpdtnwas.json" trigger="loop"
+                                    colors="primary:#16a9c7,secondary:#16a9c7" style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <div class="todo-task">
+                                <h3>Have lunch</h3>
+                                <h4>Enjoy your favorite food</h4>
+
+                            </div>
+                            <div class="todo-time">
+                                <h3>13:30 AM</h3>
+                            </div>
+                        </li>
+                        <li class="todo-list-item" data-category="Breather">
+                            <div class="todo-icon">
+                                <lord-icon src="https://cdn.lordicon.com//vieswnpa.json" trigger="loop"
+                                    colors="primary:#30c9e8,secondary:#30c9e8" style="width:50px;height:50px">
+                                </lord-icon>
+                            </div>
+                            <div class="todo-task">
+                                <h3>Listen to music</h3>
+                                <h4>Listen to your favorite Jam</h4>
+                            </div>
+                            <div class="todo-time">
+                                <h3>15:00 PM</h3>
+                            </div>
+                        </li>---->
+                    </ul>
+                </div>
+                <div class="card-front-completed">
+                    <h4 class="completed">Completed <span class="number">00</span></h4>
+                    <a href="#" class="add-tak">
+                    </a>
+                </div>
+
+            </div>
+            <div class="card-back">
+                <div class="card-back-header">
+                    <div class="content">
+                        <div>
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div>
+                            <h3>Add new thing</h3>
+                        </div>
+                        <div>
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-back-content">
+                    <div class="adding-icon">
+                        <div class="icon">
+
+                            <lord-icon src="https://cdn.lordicon.com//wxnxiano.json" trigger="loop" delay="1000"
+                                colors="primary:#30c9e8,secondary:#16a9c7" style="width:100px;height:100px">
+                            </lord-icon>
+
+                        </div>
+
+                    </div>
+                    <form action="" autocomplete="off">
+                        <div>
+                            <select name="category" id="category">
+                                <option value="" selected disabled='disabled'>Choose you activity category</option>
+                                <option value="Business">Business</option>
+                                <option value="Activity">Activity</option>
+                                <option value="Breather">Breather</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Enter your task" id="task-input">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="place" id="location-input">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Notification" id="Notification">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn">Add your task</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

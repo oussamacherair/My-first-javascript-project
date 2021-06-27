@@ -1,0 +1,15 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "TODo list with filter ",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "TODO": "node-sass -w scss/ -o content/css/ --recursive"
+  },
+  "author": "OUSSAMA CHERAIR",
+  "license": "MIT"
+}

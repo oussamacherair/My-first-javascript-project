@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+* {
+  box-sizing: border-box; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font-family: 'Poppins', sans-serif;
+  vertical-align: baseline; }
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0; }
+
+body {
+  line-height: 1;
+  color: black;
+  background: white; }
+
+ol, ul {
+  list-style: none; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: ""; }
+
+blockquote, q {
+  quotes: "" ""; }
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d6e4ef;
+  height: 100vh; }
+  .wrapper .card {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: normal;
+    position: relative;
+    width: 400px;
+    min-height: 680px;
+    overflow: hidden; }
+    .wrapper .card i {
+      cursor: pointer; }
+    .wrapper .card-front {
+      width: 400px;
+      box-shadow: 0rem 0 0.5rem 0 rgba(0, 0, 0, 0.18);
+      min-height: 680px;
+      background: #fff;
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      transition: all .5s ease; }
+      .wrapper .card-front-header {
+        background: url(../img/Clouds.jpg) no-repeat center/cover;
+        padding: 1rem 0rem 1rem .5rem;
+        min-height: 200px;
+        color: #fff;
+        position: relative;
+        z-index: 10; }
+        .wrapper .card-front-header::after {
+          position: absolute;
+          content: "";
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: "";
+          z-index: -1;
+          width: 35%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.4); }
+        .wrapper .card-front-header::before {
+          position: absolute;
+          content: "";
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          position: absolute;
+          width: 65%;
+          height: 100%;
+          background: rgba(40, 123, 164, 0.21); }
+        .wrapper .card-front-header .menu {
+          font-weight: lighter;
+          padding: 0 0 1.2rem 0;
+          font-size: 1.25rem;
+          margin-bottom: 1.2rem; }
+        .wrapper .card-front-header .content {
+          height: 139px;
+          display: flex;
+          justify-content: space-between;
+          align-items: normal; }
+          .wrapper .card-front-header .content-titles {
+            display: flex;
+            justify-content: normal;
+            align-items: normal;
+            flex-flow: column; }
+            .wrapper .card-front-header .content-titles .title {
+              font-size: 1.5625rem;
+              font-weight: bold;
+              color: #eceef7;
+              line-height: 1.4;
+              letter-spacing: 1px; }
+            .wrapper .card-front-header .content-titles .date {
+              margin-top: auto;
+              font-size: 0.875rem;
+              color: #5dcaf3; }
+        .wrapper .card-front-header .content-Cat {
+          flex: 0 0 35%;
+          align-self: center; }
+          .wrapper .card-front-header .content-Cat .cat {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            padding: .5rem 0rem; }
+            .wrapper .card-front-header .content-Cat .cat h3 {
+              font-size: 1.125rem;
+              padding: .2rem;
+              color: #fff; }
+            .wrapper .card-front-header .content-Cat .cat h4 {
+              font-size: 0.75rem;
+              color: #e0e0e0;
+              letter-spacing: 1px; }
+          .wrapper .card-front-header .content-Cat .complete {
+            position: relative;
+            position: relative;
+            top: 2.4375rem;
+            font-size: 0.875rem;
+            text-align: right;
+            padding: .5rem;
+            color: #5dcaf3; }
+      .wrapper .card-front-content {
+        background: #fff; }
+        .wrapper .card-front-content .title {
+          padding: .5rem;
+          color: #2ebaef; }
+        .wrapper .card-front-content .todo-list {
+          padding: .5rem 1rem;
+          max-height: 300px;
+          overflow: hidden scroll; }
+          .wrapper .card-front-content .todo-list-item {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #cccccc;
+            padding: .5rem 0rem;
+            text-align: left;
+            cursor: pointer;
+            position: relative;
+            transition: all .5s ease; }
+            .wrapper .card-front-content .todo-list-item .todo-icon {
+              align-self: center;
+              border: 1px solid #2ebaef;
+              border-radius: 20px 10px; }
+            .wrapper .card-front-content .todo-list-item .todo-task {
+              flex: 0 0 50%; }
+              .wrapper .card-front-content .todo-list-item .todo-task h3 {
+                font-size: 0.875rem;
+                color: #666666;
+                padding: .1rem 0;
+                letter-spacing: 1px;
+                line-height: 1.4;
+                color: #333333; }
+              .wrapper .card-front-content .todo-list-item .todo-task h4 {
+                font-size: 0.8125rem;
+                color: #666666; }
+            .wrapper .card-front-content .todo-list-item .todo-time {
+              color: #666666;
+              font-size: 0.8125rem;
+              text-transform: lowercase;
+              align-self: center; }
+      .wrapper .card-front-completed {
+        background: #fff;
+        padding: 1rem;
+        margin-top: 1rem;
+        position: relative; }
+        .wrapper .card-front-completed h4 {
+          font-size: 0.8125rem;
+          color: #666666; }
+          .wrapper .card-front-completed h4 .number {
+            display: inline-block;
+            padding: .5rem;
+            background: #e6e6e6;
+            border-radius: 50%; }
+        .wrapper .card-front-completed .add-tak {
+          position: absolute;
+          content: "";
+          top: -0.5625rem;
+          right: 0;
+          bottom: 0;
+          left: 83%;
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          font-weight: lighter;
+          border-radius: 50%;
+          background: #2ebaef;
+          color: #fff;
+          padding: .5rem;
+          box-shadow: 0rem 0rem 1rem 0.1rem rgba(46, 186, 239, 0.6);
+          transition: all .5s ease; }
+          .wrapper .card-front-completed .add-tak::before {
+            position: absolute;
+            content: "";
+            top: 0.625rem;
+            right: 0;
+            bottom: 0;
+            left: 1.25rem;
+            z-index: 1;
+            width: 1px;
+            height: 20px;
+            background: #fff; }
+          .wrapper .card-front-completed .add-tak::after {
+            position: absolute;
+            content: "";
+            top: 0.625rem;
+            right: 0;
+            bottom: 0;
+            left: 1.25rem;
+            z-index: 1;
+            width: 1px;
+            background: #fff;
+            height: 20px;
+            transform: rotate(90deg); }
+          .wrapper .card-front-completed .add-tak:hover {
+            transform: scale(0.9) rotate(40deg); }
+    .wrapper .card-back {
+      width: 400px;
+      min-height: 680px;
+      box-shadow: 0rem 0 0.5rem 0 rgba(0, 0, 0, 0.18);
+      background: #272e57;
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 130%;
+      z-index: 1;
+      transition: all .5s ease; }
+      .wrapper .card-back-header {
+        padding: 1.5rem 0rem; }
+        .wrapper .card-back-header .content {
+          display: flex;
+          justify-content: space-around;
+          align-items: center; }
+          .wrapper .card-back-header .content div h3 {
+            color: #fff;
+            text-transform: capitalize;
+            letter-spacing: 2px; }
+          .wrapper .card-back-header .content div i {
+            color: #2ebaef;
+            font-size: 1.375rem; }
+      .wrapper .card-back-content {
+        padding: .5rem 1rem; }
+        .wrapper .card-back-content .adding-icon {
+          padding: 1rem 0;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .wrapper .card-back-content .adding-icon .icon {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px 20px; }
+        .wrapper .card-back-content form {
+          padding: 3rem 1rem 0 1rem; }
+          .wrapper .card-back-content form div {
+            width: 100%; }
+            .wrapper .card-back-content form div input, .wrapper .card-back-content form div select {
+              border: none;
+              width: 100%;
+              letter-spacing: 1px;
+              padding: 1rem 1rem .5rem 1rem;
+              margin-bottom: .5rem;
+              color: #fff;
+              background: none;
+              border-bottom: 1px solid #0f91c2;
+              border-width: 1px;
+              font-size: 0.875rem; }
+              .wrapper .card-back-content form div input option, .wrapper .card-back-content form div select option {
+                background: #272e57; }
+            .wrapper .card-back-content form div:last-child {
+              margin-top: 2rem;
+              text-align: center; }
+              .wrapper .card-back-content form div:last-child button {
+                display: block;
+                width: 100%;
+                border: none;
+                padding: .7rem;
+                background: #2ebaef;
+                box-shadow: 0rem 0 0.5rem 0 rgba(0, 0, 0, 0.18);
+                color: #fff;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                cursor: pointer;
+                transition: all .5s ease; }
+                .wrapper .card-back-content form div:last-child button:hover {
+                  background: #11a2d9;
+                  transform: scale(0.98); }
+
+.move {
+  left: 0 !important; }
+
+.change {
+  left: -130% !important; }
+
+.done {
+  background: #e6e6e6;
+  border: none !important; }
+
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: #2ebaef #fff;
+  scrollbar-width: thin;
+  border-radius: 30px 30px; }

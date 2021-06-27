@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+$primary-color:#46539e;
+$scondary-color:#2ebaef;
+$color:#fff;
+
+@function text($mytext,$myDefault: 16px)
+{
+    @return ($mytext/$myDefault) * 1rem;
+}

@@ -1,0 +1,17 @@
+@mixin position($position,$content,$top,$right,$bottom,$left,$z-index) {
+    position: $position;
+    content: $content;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: $z-index;
+}
+@mixin  ease {
+    transition: all .5s ease;
+}
+@mixin display ($display,$position-x,$position-y) {
+    display: $display;
+    justify-content: $position-x;
+    align-items: $position-y;
+}
