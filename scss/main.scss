@@ -8,6 +8,55 @@
     @include display(flex,center,center);
     background: #d6e4ef;
     height: 100vh;
+    //Note panel
+    .Note-panel
+    {
+        width: 400px;
+        height: 34%;
+        background-color: rgba($primary-color,.8);
+        @include position(absolute,'',0,text(29px),0,'',10);
+        @include ease;
+        transform: translateY(-100%);
+        &-header
+        {
+            color:$color;
+            background: rgba(darken($color,100),.4);
+            @include display(flex,space-between,center);
+            h3,i 
+            {
+                padding: 1rem;
+                font-size: text(20px);
+                font-weight: lighter;
+            }
+            i 
+            {
+                @include ease;
+                &:hover
+                {
+                    color: darken($color,20);
+                }
+            }
+        }
+        .Note-list 
+        {
+            background: $color;
+            &-item
+            {
+                @include display(flex,space-between,center);
+                margin-bottom: 1rem;
+                padding:1rem ;
+                text-align: left;
+                cursor: pointer;
+                color: darken($color,20);
+                @include ease;
+                &:hover
+                {
+                    color: darken($color,40);
+                }
+            }
+        }
+        
+    }
     .card 
     {
         
@@ -31,7 +80,7 @@
            @include ease;
            &-header
            {
-                background:url(../img/Clouds.jpg)no-repeat center/cover;
+                background:url(../img/michael-block.jpg)no-repeat center/cover;
                 padding: 1rem 0rem 1rem .5rem;
                 min-height: 200px;
                 color: $color;
@@ -58,6 +107,24 @@
                     padding: 0 0 1.2rem 0;
                     font-size: text(20px);
                     margin-bottom: 1.2rem;
+                    color: $color;
+                    span 
+                    {
+                        display: inline-block;
+                        //background: $scondary-color;
+                        background: #ef2e2e;
+                        color: $color;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        text-align: center;
+                        padding: .2rem;
+                        font-size: text(14px);
+                        position: relative;
+                        top: text(-18px);
+                        left: text(8px);
+                        display: none;
+                    }
                 }
                 .content
                 {
@@ -134,14 +201,14 @@
                    overflow: hidden scroll;
                    &-item
                    {
-                       @include display(flex,space-around,center);
-                       margin-bottom: 1rem;
-                       border-bottom: 1px solid darken($color,20);
-                       padding:.5rem 0rem ;
-                       text-align: left;
+                        @include display(flex,space-around,center);
+                        margin-bottom: 1rem;
+                        border-bottom: 1px solid darken($color,20);
+                        padding:.5rem 0rem ;
+                        text-align: left;
                         cursor: pointer;
                         position: relative;
-                       @include ease;
+                        @include ease;
                        
                         .todo-icon
                         {
@@ -167,12 +234,10 @@
                                 color: darken($color,60);
                             }
                         }
-                        .todo-time
+                        .todo-del
                         {
-                            color: darken($color,60);
-                            font-size: text(13px);
-                            text-transform: lowercase;
-                            align-self: center;
+                            
+                            color: rgba($scondary-color,.6);
                         }
                    }
                }
@@ -342,12 +407,17 @@
 {
     background: darken($color,10);
     border: none !important;
+    position: relative;
+    @include ease;
+
 }
 .scroller {
 
     overflow-y: scroll;
     scrollbar-color: $scondary-color #fff;
     scrollbar-width: thin;
-    border-radius: 30px 30px;
   }
-
+.pop
+{
+    transform: translateY(0%) !important;
+}

@@ -51,6 +51,7 @@ let UIController = (function () {
         CatInput: '#category',
         TaskName: '#task-input',
         Place: '#location-input',
+        Note: '#Notification',
         Add_btn: '.add-tak',
         BackCard: '.card-back',
         FortCard: '.card-front',
@@ -61,6 +62,11 @@ let UIController = (function () {
         Buis: '.business-number',
         time: '.time',
         Per: '.perc',
+        DeleteBtn: '.fa-trash',
+        NoteList: '.Note-list',
+        Bell: '#bell',
+        NoteNum: '.notification',
+        NotePanel: '.Note-panel'
     }
 
     return {
@@ -69,6 +75,7 @@ let UIController = (function () {
                 Cat: document.querySelector(DOMstrings.CatInput),
                 TaskName: document.querySelector(DOMstrings.TaskName),
                 Place: document.querySelector(DOMstrings.Place),
+                NotificationInput: document.querySelector(DOMstrings.Note)
             }
         },
         PassInDom: () => DOMstrings,
@@ -96,21 +103,33 @@ let Controller = (function (DoControll, UIdo) {
     const BusinessNumber = document.querySelector(Dom.Buis);
     const Time = document.querySelector(Dom.time);
     const DonePerc = document.querySelector(Dom.Per);
+    const NoteListUi = document.querySelector(Dom.NoteList);
+    const NoteNumber = document.querySelector(Dom.NoteNum)
+    const NotificationPanel = document.querySelector(Dom.NotePanel);
+    const BellNote = document.querySelector(Dom.Bell);
     // array for Task Type
     let TaskMold =
     {
         Personal: 0,
         Business: 0,
     }
-   
+
+    BellNote.addEventListener('click', () => {
+            NotificationPanel.classList.toggle('pop');
+    })
+
+
+
+
+
 
 
     // btn for adding task
     form.onsubmit = (e) => {
-        let New_task = new ATask(DOMvalue.Cat.value, DOMvalue.TaskName.value, DOMvalue.Place.value);
+        let New_task = new ATask(DOMvalue.Cat.value, DOMvalue.TaskName.value, DOMvalue.Place.value, DOMvalue.NotificationInput.value);
         New_task.Theme();
 
-        if (Valid(DOMvalue.Cat.value && DOMvalue.TaskName.value && DOMvalue.Place.value)) {
+        if (Valid(DOMvalue.Cat.value && DOMvalue.TaskName.value && DOMvalue.Place.value, DOMvalue.NotificationInput.value)) {
             // this statement if/else for Task Type 
 
 
@@ -120,7 +139,6 @@ let Controller = (function (DoControll, UIdo) {
             else {
                 TaskMold.Personal++
             }
-
 
             PorsonalNumber.textContent = TaskMold.Personal;
 
@@ -135,23 +153,52 @@ let Controller = (function (DoControll, UIdo) {
            <h3>${New_task.TaskString}</h3>
            <h4>${New_task.Place}</h4>
             </div>
-            <div class="todo-time">
-           <h3>${Hour}:${Min}</h3>
+            <div class="todo-del">
+            <i class="fas fa-trash"></i>
                  </div>
              </li>`;
             ///
+            let NoteLi = `<li class="Note-list-item">
+            <div>
+            <h3>${New_task.Notfi} </h3>
+            </div>
+            <div>
+            <i class="far fa-bell" id="bell"></i>
+            </div>
+            </li>`
+            NoteListUi.innerHTML += NoteLi;
 
+            if (NoteListUi.childElementCount > 0) {
+                NoteNumber.style.display = 'block';
+                NoteNumber.textContent = NoteListUi.childElementCount;
+            }
+
+            ///
             // List.insertAdjacentHTML('afterbegin', Li)
             List.innerHTML += Li;
             // 
             let Item_List = document.querySelectorAll(`${Dom.Menu} li`);
+            //const Delete = document.querySelectorAll(Dom.DeleteBtn);
 
             // giving each list item a event click so when it clicked it's done
             let Items = Array.from(Item_List);
 
             Items.forEach(item => {
-                item.addEventListener('click', () => {
+                item.addEventListener('click', (e) => {
                     item.classList.toggle('done');
+                    if (e.target.className === 'fas fa-trash') {
+                        item.remove()
+                    }
+                })
+            })
+            ///
+            let list_note = document.querySelectorAll('.Note-list-item');
+            let Note_items = Array.from(list_note);
+            Note_items.forEach(item => {
+                item.addEventListener('click', () => {
+                    item.remove()
+                    NoteNumber.style.display = 'none';
+                    NoteNumber.textContent = NoteListUi.childElementCount;
                 })
             })
 
@@ -202,7 +249,7 @@ let Controller = (function (DoControll, UIdo) {
         let Com = document.querySelector('.number');
         Com.textContent = DoneList.length;
         if (DoneList.length > 0) {
-            DonePerc.textContent = `${(DoneList.length * 100) / (TaskMold.Business + TaskMold.Personal)}% done`;
+            DonePerc.textContent = `${((DoneList.length * 100) / (TaskMold.Business + TaskMold.Personal)).toFixed(1)}% done`;
             if (DoneList.length < 10) {
                 Com.textContent = `0${DoneList.length}`;
             }
@@ -222,6 +269,7 @@ function RestInput(In) {
     In.Cat.value = '';
     In.TaskName.value = '';
     In.Place.value = '';
+    In.NotificationInput.value = ''
 }
 
 //form validation
