@@ -115,7 +115,7 @@ let Controller = (function (DoControll, UIdo) {
     }
 
     BellNote.addEventListener('click', () => {
-            NotificationPanel.classList.toggle('pop');
+        NotificationPanel.classList.toggle('pop');
     })
 
 
@@ -140,9 +140,7 @@ let Controller = (function (DoControll, UIdo) {
                 TaskMold.Personal++
             }
 
-            PorsonalNumber.textContent = TaskMold.Personal;
-
-            BusinessNumber.textContent = TaskMold.Business;
+            
 
             let Li = `
             <li class="todo-list-item" data-category="${New_task.Cat}">
@@ -187,6 +185,13 @@ let Controller = (function (DoControll, UIdo) {
                 item.addEventListener('click', (e) => {
                     item.classList.toggle('done');
                     if (e.target.className === 'fas fa-trash') {
+                        if (item.getAttribute('data-category') === 'Business') {
+                            TaskMold.Business--;
+                        }
+                        else {
+                            TaskMold.Personal--;
+                        }
+
                         item.remove()
                     }
                 })
@@ -247,6 +252,8 @@ let Controller = (function (DoControll, UIdo) {
     window.setInterval(() => {
         let DoneList = document.querySelectorAll(`${Dom.Menu} .done`);
         let Com = document.querySelector('.number');
+        PorsonalNumber.textContent = TaskMold.Personal;
+        BusinessNumber.textContent = TaskMold.Business;
         Com.textContent = DoneList.length;
         if (DoneList.length > 0) {
             DonePerc.textContent = `${((DoneList.length * 100) / (TaskMold.Business + TaskMold.Personal)).toFixed(1)}% done`;
