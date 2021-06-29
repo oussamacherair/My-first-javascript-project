@@ -243,7 +243,7 @@ let Controller = (function (DoControll, UIdo) {
     window.onload = () => {
         PorsonalNumber.textContent = 0;
         BusinessNumber.textContent = 0;
-        const event = new Date(Date.UTC(2021, 5, 26, 0, 0, 0));
+        const event = new Date();
 
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 

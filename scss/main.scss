@@ -6,22 +6,23 @@
 .wrapper
 {
     @include display(flex,center,center);
-    background: #d6e4ef;
     height: 100vh;
     //Note panel
     .Note-panel
     {
         width: 400px;
         height: 34%;
-        background-color: rgba($primary-color,.8);
         @include position(absolute,'',0,text(29px),0,'',10);
         @include ease;
         transform: translateY(-100%);
+        box-shadow: 0rem 0rem .5rem .1rem #9388887a;
+
         &-header
         {
-            color:$color;
-            background: rgba(darken($color,100),.4);
+            color:darken($color, 70);
+            background:$color ;
             @include display(flex,space-between,center);
+            border-bottom: 1px solid darken($color, 10);
             h3,i 
             {
                 padding: 1rem;
@@ -40,6 +41,7 @@
         .Note-list 
         {
             background: $color;
+            max-height: calc(305px -52px);
             &-item
             {
                 @include display(flex,space-between,center);
@@ -47,7 +49,9 @@
                 padding:1rem ;
                 text-align: left;
                 cursor: pointer;
-                color: darken($color,20);
+                color: darken($color,30);
+                border-bottom: 1px solid darken($color, 10);
+
                 @include ease;
                 &:hover
                 {
@@ -66,6 +70,7 @@
         width: 400px;
         min-height: 680px;
         overflow: hidden;
+        box-shadow: 0rem 0rem .5rem .1rem #9388887a;
         i 
         {
             cursor: pointer;
@@ -93,14 +98,7 @@
                     height: 100%;
                     background: rgba(0, 0, 0, 0.4);
                 }
-                &::before
-                {
-                    @include position(absolute,'',0,0,0,0,-1);
-                    position: absolute;
-                    width: 65%;
-                    height: 100%;
-                    background: rgba(40, 123, 164, 0.21);
-                }
+               
                 .menu
                 {
                     font-weight: lighter;
@@ -302,12 +300,15 @@
             width: 400px;
             min-height: 680px;
             box-shadow: 0rem 0 .5rem 0 rgba(0, 0, 0, 0.18);
-            background:darken($primary-color, 20);
+           // background:darken($primary-color, 20);
+           box-shadow: inset 1rem 1rem 10rem 10rem #00000070;
+           background: url(../img/calvar-martinez.jpg)no-repeat center/cover;
             @include position(absolute,'',0,0,0,130%,1);
             @include ease;
             &-header
             {
-                padding: 1.5rem 0rem;
+                padding: 1rem 0rem;
+                background: $color;
                 .content
                 {
                     @include display(flex,space-around,center);
@@ -315,7 +316,7 @@
                     {
                         h3 
                         {
-                            color: $color;
+                            color: darken($color,40);
                             text-transform: capitalize;
                             letter-spacing: 2px;
                         }
@@ -335,8 +336,8 @@
                     @include display(flex,center,center);
                     .icon 
                     {
-                        border: 1px solid transparentize($color,.7);
-                        border-radius: 30px 20px;
+                        background: $color;
+                        border-radius: 40px 20px;
                     }
                 }
                 form 
@@ -357,12 +358,6 @@
                         border-bottom: 1px solid darken($scondary-color,15);
                         border-width: 1px;
                         font-size: text(14px);
-                        
-                        option
-                        {
-                            background:darken($primary-color, 20);
-
-                        }
                     } 
                     &:last-child
                     {

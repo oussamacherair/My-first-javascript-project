@@ -50,12 +50,10 @@ blockquote, q {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #d6e4ef;
   height: 100vh; }
   .wrapper .Note-panel {
     width: 400px;
     height: 34%;
-    background-color: rgba(70, 83, 158, 0.8);
     position: absolute;
     content: "";
     top: 0;
@@ -64,13 +62,15 @@ blockquote, q {
     left: "";
     z-index: 10;
     transition: all .5s ease;
-    transform: translateY(-100%); }
+    transform: translateY(-100%);
+    box-shadow: 0rem 0rem .5rem .1rem #9388887a; }
     .wrapper .Note-panel-header {
-      color: #fff;
-      background: rgba(0, 0, 0, 0.4);
+      color: #4d4d4d;
+      background: #fff;
       display: flex;
       justify-content: space-between;
-      align-items: center; }
+      align-items: center;
+      border-bottom: 1px solid #e6e6e6; }
       .wrapper .Note-panel-header h3, .wrapper .Note-panel-header i {
         padding: 1rem;
         font-size: 1.25rem;
@@ -80,7 +80,8 @@ blockquote, q {
         .wrapper .Note-panel-header i:hover {
           color: #cccccc; }
     .wrapper .Note-panel .Note-list {
-      background: #fff; }
+      background: #fff;
+      max-height: calc(305px -52px); }
       .wrapper .Note-panel .Note-list-item {
         display: flex;
         justify-content: space-between;
@@ -89,7 +90,8 @@ blockquote, q {
         padding: 1rem;
         text-align: left;
         cursor: pointer;
-        color: #cccccc;
+        color: #b3b3b3;
+        border-bottom: 1px solid #e6e6e6;
         transition: all .5s ease; }
         .wrapper .Note-panel .Note-list-item:hover {
           color: #999999; }
@@ -101,7 +103,8 @@ blockquote, q {
     position: relative;
     width: 400px;
     min-height: 680px;
-    overflow: hidden; }
+    overflow: hidden;
+    box-shadow: 0rem 0rem .5rem .1rem #9388887a; }
     .wrapper .card i {
       cursor: pointer; }
     .wrapper .card-front {
@@ -135,18 +138,6 @@ blockquote, q {
           width: 35%;
           height: 100%;
           background: rgba(0, 0, 0, 0.4); }
-        .wrapper .card-front-header::before {
-          position: absolute;
-          content: "";
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: -1;
-          position: absolute;
-          width: 65%;
-          height: 100%;
-          background: rgba(40, 123, 164, 0.21); }
         .wrapper .card-front-header .menu {
           font-weight: lighter;
           padding: 0 0 1.2rem 0;
@@ -309,7 +300,8 @@ blockquote, q {
       width: 400px;
       min-height: 680px;
       box-shadow: 0rem 0 0.5rem 0 rgba(0, 0, 0, 0.18);
-      background: #272e57;
+      box-shadow: inset 1rem 1rem 10rem 10rem #00000070;
+      background: url(../img/calvar-martinez.jpg) no-repeat center/cover;
       position: absolute;
       content: "";
       top: 0;
@@ -319,13 +311,14 @@ blockquote, q {
       z-index: 1;
       transition: all .5s ease; }
       .wrapper .card-back-header {
-        padding: 1.5rem 0rem; }
+        padding: 1rem 0rem;
+        background: #fff; }
         .wrapper .card-back-header .content {
           display: flex;
           justify-content: space-around;
           align-items: center; }
           .wrapper .card-back-header .content div h3 {
-            color: #fff;
+            color: #999999;
             text-transform: capitalize;
             letter-spacing: 2px; }
           .wrapper .card-back-header .content div i {
@@ -339,8 +332,8 @@ blockquote, q {
           justify-content: center;
           align-items: center; }
           .wrapper .card-back-content .adding-icon .icon {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 30px 20px; }
+            background: #fff;
+            border-radius: 40px 20px; }
         .wrapper .card-back-content form {
           padding: 3rem 1rem 0 1rem; }
           .wrapper .card-back-content form div {
@@ -356,8 +349,6 @@ blockquote, q {
               border-bottom: 1px solid #0f91c2;
               border-width: 1px;
               font-size: 0.875rem; }
-              .wrapper .card-back-content form div input option, .wrapper .card-back-content form div select option {
-                background: #272e57; }
             .wrapper .card-back-content form div:last-child {
               margin-top: 2rem;
               text-align: center; }
